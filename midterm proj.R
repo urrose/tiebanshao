@@ -42,6 +42,7 @@ CA_orgstrb_2016 <- filter(strawb, State == 'CALIFORNIA' &
 margin1 <- 231304956*1.96*0.137
 upper1 <- 231304956+62110007
 lower1 <- 231304956-62110007
+#(169194949,293414963)
 
 ##3
 CA_non_orgstrb_2016 <- filter(strawb, State == 'CALIFORNIA' & 
@@ -53,6 +54,9 @@ new_non <- filter(CA_non_orgstrb_2016, Value != "(NA)" &
 library(gmodels)
 library(Rmisc)
 CI(as.numeric(new_non$Value))
+#Because there are NA variable in the date set.
+#And there are negative value in the CI.
+#So the answer for question3 is NA.
 
 ##4
 unique(strawb[10])
@@ -62,7 +66,7 @@ grep("TOTAL",
      No.chemical$`Domain Category`,
      ignore.case = T)
 unique(No.chemical[11])
-175 - 36
+ans4=175 - 36
 
 ##5
 chem_FL <- filter(strawb, State == 'FLORIDA' & 
